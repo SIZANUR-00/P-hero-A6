@@ -1,62 +1,8 @@
 [
-  {
-    "id": 1,
-    "name": "Resume Builder",
-    "description": "Create professional CV",
-    "price": 500,
-    "period": "one-time",
-    "tagType": "Popular",
-    "features": ["Templates", "PDF Export"],
-    "icon": "📄"
-  },
-  {
-    "id": 2,
-    "name": "Logo Maker",
-    "description": "Create logo instantly",
-    "price": 300,
-    "period": "monthly",
-    "tagType": "New",
-    "features": ["AI Logo", "Download"],
-    "icon": "🎨"
-  },
-  {
-    "id": 3,
-    "name": "Portfolio Builder",
-    "description": "Build your website",
-    "price": 800,
-    "period": "yearly",
-    "tagType": "Best Seller",
-    "features": ["Hosting", "SEO"],
-    "icon": "🌐"
-  },
-  {
-    "id": 4,
-    "name": "Interview Practice",
-    "description": "Prepare interview",
-    "price": 400,
-    "period": "monthly",
-    "tagType": "Popular",
-    "features": ["Mock Test", "Feedback"],
-    "icon": "🎤"
-  },
-  {
-    "id": 5,
-    "name": "Cover Letter Tool",
-    "description": "Write letter fast",
-    "price": 200,
-    "period": "one-time",
-    "tagType": "New",
-    "features": ["Auto Write", "Templates"],
-    "icon": "✉️"
-  },
-  {
-    "id": 6,
-    "name": "CV Analyzer",
-    "description": "Improve CV score",
-    "price": 150,
-    "period": "monthly",
-    "tagType": "Best Seller",
-    "features": ["Score", "Suggestions"],
-    "icon": "📊"
-  }
+  {"id":1,"name":"Resume Builder","description":"Create professional CV","price":500,"period":"one-time","tagType":"Popular","features":["Templates","PDF Export"],"icon":"📄"},
+  {"id":2,"name":"Logo Maker","description":"Create logo instantly","price":300,"period":"monthly","tagType":"New","features":["AI Logo","Download"],"icon":"🎨"},
+  {"id":3,"name":"Portfolio Builder","description":"Build your website","price":800,"period":"yearly","tagType":"Best Seller","features":["Hosting","SEO"],"icon":"🌐"},
+  {"id":4,"name":"Interview Practice","description":"Prepare interview","price":400,"period":"monthly","tagType":"Popular","features":["Mock Test","Feedback"],"icon":"🎤"},
+  {"id":5,"name":"Cover Letter Tool","description":"Write letter fast","price":200,"period":"one-time","tagType":"New","features":["Auto Write","Templates"],"icon":"✉️"},
+  {"id":6,"name":"CV Analyzer","description":"Improve CV score","price":150,"period":"monthly","tagType":"Best Seller","features":["Score","Suggestions"],"icon":"📊"}
 ]

@@ -32,34 +32,19 @@ function App() {
   return (
     <>
       <Navbar cartCount={cart.length} setView={setView} />
-
       <Banner />
       <Stats />
-
       <div className="text-center mt-6">
-        <button
-          onClick={() => setView("products")}
-          className="mr-4 bg-gray-300 px-4 py-1 rounded"
-        >
-          Products
-        </button>
-        <button
-          onClick={() => setView("cart")}
-          className="bg-gray-300 px-4 py-1 rounded"
-        >
-          Cart
-        </button>
+        <button onClick={() => setView("products")} className="mr-4 bg-gray-300 px-4 py-1 rounded">Products</button>
+        <button onClick={() => setView("cart")} className="bg-gray-300 px-4 py-1 rounded">Cart</button>
       </div>
-
       {view === "products" ? (
         <Products products={products} addToCart={addToCart} />
       ) : (
         <Cart cart={cart} removeItem={removeItem} clearCart={clearCart} />
       )}
-
       <Pricing />
       <Footer />
-
       <ToastContainer />
     </>
   );
