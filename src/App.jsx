@@ -1,52 +1,121 @@
-import { useState } from "react";
-import products from "./data/products.json";
-import Navbar from "./components/Navbar";
-import Products from "./components/Products";
-import Cart from "./components/Cart";
-import Banner from "./components/Banner";
-import Stats from "./components/Stats";
-import Pricing from "./components/Pricing";
-import Footer from "./components/Footer";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navbar from './components/Navbar';
+import Banner from './components/Banner';
+import Stats from './components/Stats';
+import Products from './components/Products';
+import Cart from './components/Cart';
+import Pricing from './components/Pricing';
+import Footer from './components/Footer';
+import productsData from './data/products.json';
+import './App.css';
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [view, setView] = useState("products");
+  const [activeTab, setActiveTab] = useState('product');
+  const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (item) => {
-    setCart([...cart, item]);
-    toast.success("Added to cart");
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('digiToolsCart');
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('digiToolsCart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (product) => {
+    const existingItem = cartItems.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      toast.info(`${product.name} is already in your cart!`, {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    } else {
+      setCartItems([...cartItems, product]);
+      toast.success(`✨ ${product.name} added to cart!`, {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    }
   };
 
-  const removeItem = (id) => {
-    setCart(cart.filter((i) => i.id !== id));
-    toast.error("Removed from cart");
+  const removeFromCart = (id, name) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+    toast.warn(`🗑️ ${name} removed from cart`, {
+      position: "top-right",
+      autoClose: 2000,
+    });
   };
 
-  const clearCart = () => {
-    setCart([]);
-    toast.info("Checkout complete");
+  const handleCheckout = () => {
+    if (cartItems.length === 0) {
+      toast.error("Your cart is empty! Add some products first.", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      return;
+    }
+    
+    setCartItems([]);
+    toast.success("🎉 Thank you for your purchase! Your order has been confirmed.", {
+      position: "top-right",
+      autoClose: 3000,
+    });
   };
 
   return (
-    <>
-      <Navbar cartCount={cart.length} setView={setView} />
+    <div className="min-h-screen bg-gray-50">
+      <ToastContainer />
+      <Navbar cartCount={cartItems.length} />
       <Banner />
       <Stats />
-      <div className="text-center mt-6">
-        <button onClick={() => setView("products")} className="mr-4 bg-gray-300 px-4 py-1 rounded">Products</button>
-        <button onClick={() => setView("cart")} className="bg-gray-300 px-4 py-1 rounded">Cart</button>
+      
+      {/* Toggle Buttons */}
+      <div className="flex justify-center mt-12 mb-8 gap-4">
+        <button
+          onClick={() => setActiveTab('product')}
+          className={`px-8 py-3 rounded-full font-bold text-base transition-all duration-300 ${
+            activeTab === 'product'
+              ? 'bg-indigo-600 text-white shadow-lg transform scale-105'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          📦 Products
+        </button>
+        <button
+          onClick={() => setActiveTab('cart')}
+          className={`px-8 py-3 rounded-full font-bold text-base transition-all duration-300 ${
+            activeTab === 'cart'
+              ? 'bg-indigo-600 text-white shadow-lg transform scale-105'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          🛒 Cart ({cartItems.length})
+        </button>
       </div>
-      {view === "products" ? (
-        <Products products={products} addToCart={addToCart} />
-      ) : (
-        <Cart cart={cart} removeItem={removeItem} clearCart={clearCart} />
-      )}
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8">
+        {activeTab === 'product' ? (
+          <Products products={productsData} onAddToCart={addToCart} />
+        ) : (
+          <Cart 
+            cartItems={cartItems} 
+            onRemove={removeFromCart} 
+            onCheckout={handleCheckout} 
+          />
+        )}
+      </div>
+
       <Pricing />
       <Footer />
-      <ToastContainer />
-    </>
+    </div>
   );
 }
 

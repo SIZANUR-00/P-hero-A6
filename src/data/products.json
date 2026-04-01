@@ -1,8 +1,90 @@
 [
-  {"id":1,"name":"Resume Builder","description":"Create professional CV","price":500,"period":"one-time","tagType":"Popular","features":["Templates","PDF Export"],"icon":"📄"},
-  {"id":2,"name":"Logo Maker","description":"Create logo instantly","price":300,"period":"monthly","tagType":"New","features":["AI Logo","Download"],"icon":"🎨"},
-  {"id":3,"name":"Portfolio Builder","description":"Build your website","price":800,"period":"yearly","tagType":"Best Seller","features":["Hosting","SEO"],"icon":"🌐"},
-  {"id":4,"name":"Interview Practice","description":"Prepare interview","price":400,"period":"monthly","tagType":"Popular","features":["Mock Test","Feedback"],"icon":"🎤"},
-  {"id":5,"name":"Cover Letter Tool","description":"Write letter fast","price":200,"period":"one-time","tagType":"New","features":["Auto Write","Templates"],"icon":"✉️"},
-  {"id":6,"name":"CV Analyzer","description":"Improve CV score","price":150,"period":"monthly","tagType":"Best Seller","features":["Score","Suggestions"],"icon":"📊"}
+  {
+    "id": 1,
+    "name": "DesignFlow Studio",
+    "description": "Professional UI/UX design suite with AI-powered collaboration tools.",
+    "price": 29,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": ["100+ premium templates", "AI layout generator", "Real-time collaboration"],
+    "icon": "🎨"
+  },
+  {
+    "id": 2,
+    "name": "SEO Booster Pro",
+    "description": "Dominate search rankings with AI-driven SEO insights and keyword tracking.",
+    "price": 49,
+    "period": "monthly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": ["Keyword rank tracker", "Backlink monitoring", "SEO audit tool"],
+    "icon": "📈"
+  },
+  {
+    "id": 3,
+    "name": "CodePilot AI",
+    "description": "Advanced AI coding assistant that writes, debugs, and optimizes your code.",
+    "price": 19,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "new",
+    "features": ["Code completion", "Bug detection", "Code documentation"],
+    "icon": "🤖"
+  },
+  {
+    "id": 4,
+    "name": "VidCraft Elite",
+    "description": "Professional video editing suite with 4K rendering and motion graphics.",
+    "price": 39,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": ["4K HDR export", "Motion graphics", "Audio mastering"],
+    "icon": "🎬"
+  },
+  {
+    "id": 5,
+    "name": "SecureVault Plus",
+    "description": "Enterprise-grade password manager with biometric authentication.",
+    "price": 59,
+    "period": "yearly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": ["Unlimited passwords", "Biometric login", "Dark web alerts"],
+    "icon": "🔒"
+  },
+  {
+    "id": 6,
+    "name": "Marketing Maven",
+    "description": "All-in-one social media management platform with AI content generation.",
+    "price": 24,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "new",
+    "features": ["Social scheduler", "Engagement analytics", "AI captions"],
+    "icon": "📱"
+  },
+  {
+    "id": 7,
+    "name": "CloudCanvas Pro",
+    "description": "Collaborative whiteboard and diagramming tool for remote teams.",
+    "price": 12,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": ["Infinite canvas", "Real-time sync", "Export PDF/PNG"],
+    "icon": "✍️"
+  },
+  {
+    "id": 8,
+    "name": "DataPulse Analytics",
+    "description": "Real-time business intelligence dashboard with predictive analytics.",
+    "price": 99,
+    "period": "yearly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": ["Interactive dashboards", "SQL editor", "Forecast models"],
+    "icon": "📊"
+  }
 ]
