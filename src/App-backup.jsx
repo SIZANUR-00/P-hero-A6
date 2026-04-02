@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen bg-indigo-100 flex items-center justify-center">
       <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-        <h1 className="text-4xl font-bold text-indigo-600 mb-4">ToolForge is Running!</h1>
+        <h1 className="text-4xl font-bold text-indigo-600 mb-4">DigiTools is Running!</h1>
         <p className="text-gray-600 mb-4">If you see this, React is working correctly.</p>
         <button 
           onClick={() => setCount(count + 1)}

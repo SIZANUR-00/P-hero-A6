@@ -1,3 +1,4 @@
+import bannerImage from '../assets/banner.png';
 const Banner = () => {
   return (
     <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-16 sm:py-20">
@@ -15,7 +16,7 @@ const Banner = () => {
             </p>
             <div className="flex gap-4 justify-center lg:justify-start">
               <button className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-700 transition">
-                Get Started Free
+                Explore Products
               </button>
               <button className="px-8 py-3 border-2 border-indigo-300 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition">
                 Watch Demo
@@ -24,10 +25,11 @@ const Banner = () => {
           </div>
           <div className="flex-1 flex justify-center">
             <img 
-              src="https://placehold.co/500x450/6366f1/ffffff?text=Digital+Tools" 
+              src={bannerImage}
               alt="Digital Tools"
               className="rounded-2xl shadow-2xl max-w-full h-auto"
             />
+            
           </div>
         </div>
       </div>

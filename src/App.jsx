@@ -113,7 +113,7 @@ function App() {
         )}
       </div>
 
-      <Pricing />
+      <Pricing onTabChange={setActiveTab} />
       <Footer />
     </div>
   );

@@ -3,87 +3,114 @@ import { FaCheck } from 'react-icons/fa';
 const plans = [
   {
     name: 'Starter',
-    price: 19,
-    period: 'month',
-    features: ['5 team members', 'Core tool access', 'Email support', 'Basic analytics'],
+    tagline: 'Perfect for getting started',
+    price: 0,
+    features: ['Access to 10 free tools', 'Basic templates', 'Community support', '1 project per month'],
     popular: false,
+    cta: 'Get Started Free'
   },
   {
-    name: 'Professional',
-    price: 49,
-    period: 'month',
-    features: ['Unlimited members', 'All pro tools', 'Priority support', 'API access', 'Advanced analytics'],
+    name: 'Pro',
+    tagline: 'Best for professionals',
+    price: 29,
+    features: ['Access to all premium tools', 'Unlimited templates', 'Priority support', 'Unlimited projects', 'Cloud sync', 'Advanced analytics'],
     popular: true,
+    cta: 'Start Pro Trial'
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    features: ['SSO & SAML', 'Dedicated manager', 'Custom integrations', 'SLA guarantee', '24/7 support'],
+    tagline: 'For teams and businesses',
+    price: 99,
+    features: ['Everything in Pro', 'Team collaboration', 'Custom integrations', 'Dedicated support', 'SLA guarantee', 'Custom branding'],
     popular: false,
+    cta: 'Contact Sales'
   },
 ];
 
 const Pricing = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-            Flexible Plans for Every Team
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Choose the perfect plan that fits your team's needs.
-          </p>
-        </div>
+    <div className="font-sans">
+      {/* Pricing Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-gray-500">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`relative rounded-2xl border-2 ${plan.popular ? 'border-indigo-500 shadow-xl' : 'border-gray-200'} bg-white hover:shadow-xl transition`}
-            >
-              {plan.popular && (
-                <div className="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 text-sm font-semibold rounded-bl-2xl rounded-tr-2xl">
-                  Popular
-                </div>
-              )}
-              
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{plan.name}</h3>
-                <div className="mb-4">
-                  {typeof plan.price === 'number' ? (
-                    <>
-                      <span className="text-4xl font-bold text-indigo-600">${plan.price}</span>
-                      <span className="text-gray-500">/{plan.period}</span>
-                    </>
-                  ) : (
-                    <span className="text-3xl font-bold text-gray-800">{plan.price}</span>
-                  )}
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {plans.map((plan, index) => (
+              <div 
+                key={index} 
+                className={`relative rounded-3xl p-8 transition-all duration-300 ${
+                  plan.popular 
+                  ? 'bg-[#7030f4] text-white shadow-2xl scale-105 z-10' 
+                  : 'bg-white text-gray-900 shadow-sm border border-gray-100 hover:shadow-md'
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                    Most Popular
+                  </div>
+                )}
                 
-                <ul className="space-y-3 mb-8">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
+                  <p className={`text-sm ${plan.popular ? 'text-purple-100' : 'text-gray-400'}`}>{plan.tagline}</p>
+                </div>
+
+                <div className="mb-8">
+                  <span className="text-5xl font-bold">${plan.price}</span>
+                  <span className={`text-lg ${plan.popular ? 'text-purple-200' : 'text-gray-400'}`}>/Month</span>
+                </div>
+
+                <ul className="space-y-4 mb-10">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-gray-600">
-                      <FaCheck className="text-indigo-500 text-sm" />
-                      <span className="text-sm">{feature}</span>
+                    <li key={idx} className="flex items-center gap-3">
+                      <FaCheck className={plan.popular ? 'text-white' : 'text-purple-600'} size={14} />
+                      <span className="text-sm opacity-90">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                
-                <button className={`w-full py-3 rounded-xl font-semibold transition ${
+
+                <button className={`w-full py-4 rounded-2xl font-bold transition-transform active:scale-95 ${
                   plan.popular 
-                    ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
-                    : 'border-2 border-indigo-200 text-indigo-600 hover:bg-indigo-50'
+                  ? 'bg-white text-[#7030f4] hover:bg-gray-100' 
+                  : 'bg-[#7030f4] text-white hover:opacity-90'
                 }`}>
-                  {plan.popular ? 'Start Free Trial' : plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
+                  {plan.cta}
                 </button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* CTA Footer Section */}
+      <section className="bg-[#7030f4] py-24 text-center text-white px-4">
+        <h2 className="text-4xl font-bold mb-6">Ready To Transform Your Workflow?</h2>
+        <p className="text-purple-100 mb-10 max-w-xl mx-auto">
+          Join thousands of professionals who are already using Digitools to work smarter. Start your free trial today.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 mb-6">
+          <button
+            className="bg-white text-[#7030f4] px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition"
+            onClick={() => onTabChange && onTabChange('product')}
+          >
+            Explore Products
+          </button>
+          <button
+            className="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition"
+            onClick={() => onTabChange && onTabChange('pricing')}
+          >
+            View Pricing
+          </button>
+        </div>
+        <p className="text-sm text-purple-200">
+          14-day free trial • No credit card required • Cancel anytime
+        </p>
+      </section>
+    </div>
   );
 };
 
